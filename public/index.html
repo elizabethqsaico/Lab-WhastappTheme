@@ -21,25 +21,38 @@
 	</style>
 </head>
 <body>
-
-	<div id="bienvenida" class="well">
-		<div class="fb-like"  data-share="true" data-width="450" data-show-faces="true"></div>
-		<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
-		<input type="text" id="nombre" class="form-control">
-		<button onclick="guardarNombre()">Entrar</button>
-	</div>
-
-	<div id="chat" class="well">
-		<h1>Bienvenid@ a mi super chat</h1>
-		<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
-		<input type="text" id="mensaje" class="form-control">
-		<button onclick="enviarMensaje()">Enviar mensaje</button>
-		<button onclick="limpiarMensajes()">Limpiar mensajes</button>
-		<ul id="lista_mensajes" class="list-group"></ul>
-
-		<p>
-			<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
-		</p>
+	<div class="row">
+		<div class="container">
+			<div class="col-md-4">
+				<ul id="lista_mensajes" class="list-group"></ul>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<ul id="lista_mensajes" class="list-group"></ul>	
+				</div>
+				<div class="row">
+					<div id="bienvenida" class="well">
+						<div class="fb-like"  data-share="true" data-width="450" data-show-faces="true"></div>
+						<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
+						<input type="text" id="nombre" class="form-control">
+						<button onclick="guardarNombre()">Entrar</button>
+					</div>
+		
+				<div id="chat" class="well">
+					<h1>Bienvenid@ a mi super chat</h1>
+					<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
+					<input type="text" id="mensaje" class="form-control">
+					<button onclick="enviarMensaje()">Enviar mensaje</button>
+					<button onclick="limpiarMensajes()">Limpiar mensajes</button>
+					<ul id="lista_mensajes" class="list-group"></ul>
+			
+					<p>
+						<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
+					</p>
+				</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script>
