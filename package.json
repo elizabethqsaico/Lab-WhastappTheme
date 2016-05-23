@@ -1,0 +1,26 @@
+{
+  "name": "whatsapp-theme",
+  "version": "1.0.0",
+  "description": "Chat de Whatsapp",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elizabethqsaico/Lab-WhastappTheme.git"
+  },
+  "author": "Elizabeth Q Saico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elizabethqsaico/Lab-WhastappTheme/issues"
+  },
+  "homepage": "https://github.com/elizabethqsaico/Lab-WhastappTheme#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.6"
+  }
+}

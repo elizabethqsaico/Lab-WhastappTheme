@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+    head
+        title Whatsapp Web
+        link(rel='shortcut icon' href='favicon.ico.png' type='image/png')
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        script(src='https://code.jquery.com/jquery-1.11.1.js')
+        script(src='js/bootstrap.min.js')
+        script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
+        link(rel='stylesheet' href='css/icomoon.css')
+        link(rel='stylesheet' href='css/font-awesome.css')
+        link(rel='stylesheet' href='main.css')
+        style.
+            #bienvenida
+            {
+                border: 1px solid #CCC;
+                margin: 10px;
+            }
+            #chat
+            {
+                margin: 10px;
+                border: 1px solid #CCC;
+                display: none;
+            }
+    body
+        header
+            #bienvenida.well
+                h3 Hola, por favor ingresa tu nombre para entrar al chat
+                input#nombre.form-control(type='text')
+                button(onclick='guardarNombre()') Entrar
+            #chat.well
+                h1 Bienvenid@ a mi super chat
+                p Solo puedes envíar mensajes, en una siguiente versión también lo verás!!
+                input#mensaje.form-control(type='text')
+                button(onclick='enviarMensaje()') Enviar
+                button(onclick='limpiarNombre()') Limpiar
+                ul#lista_mensajes.list-group
+        script(type='text/javascript').
+            var socket = io('/');
+            var nombre;
+            function guardarNombre()
+            {
+                nombre = $('#nombre').val();
+                $('#bienvenida').hide();
+                $('#chat').show();
+            }
+            function enviarMensaje()
+            {
+                socket.emit('chat', "<span class='label label-danger'>" +  nombre + "</span> : " + $('#mensaje').val()  );
+                $('#mensaje').val('');
+                $('#mensaje').focus();
+            }
+            function limpiarMensajes()
+            {
+                $('#lista_mensajes').html('');
+            }
+            socket.on('nuevo_mensaje', function (_msg)
+            {
+                $('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
+            });
+
+
+
