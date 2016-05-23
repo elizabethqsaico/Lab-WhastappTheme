@@ -13,32 +13,50 @@ html(lang="en")
         link(rel='stylesheet' href='css/icomoon.css')
         link(rel='stylesheet' href='css/font-awesome.css')
         link(rel='stylesheet' href='main.css')
-        style.
-            #bienvenida
-            {
-                border: 1px solid #CCC;
-                margin: 10px;
-            }
-            #chat
-            {
-                margin: 10px;
-                border: 1px solid #CCC;
-                display: none;
-            }
+
     body
         header
-            #bienvenida.well
-                h3 Hola, por favor ingresa tu nombre para entrar al chat
-                input#nombre.form-control(type='text')
-                button(onclick='guardarNombre()') Entrar
-            #chat.well
-                h1 Bienvenid@ a mi super chat
-                p Solo puedes envíar mensajes, en una siguiente versión también lo verás!!
-                input#mensaje.form-control(type='text')
-                button(onclick='enviarMensaje()') Enviar
-                button(onclick='limpiarNombre()') Limpiar
-                ul#lista_mensajes.list-group
-        script(type='text/javascript').
+            .row
+                .container
+                    .col-md-4
+                        ul#lista_mensajes.list-group
+                    .col-md-8
+                        .row
+                            .fb-like(data-share='true' data-width='450' data-show-faces='true')
+                            ul#lista_mensajes.list-group
+                            
+                              
+
+                        .row
+                            #bienvenida.well
+                                h3 Hola, por favor ingresa tu nombre para entrar al chat
+                                input#nombre.form-control(type='text')
+                                button(onclick='guardarNombre()') Entrar
+                            #chat.well
+                                h1 Bienvenid@ a mi super chat
+                                p Solo puedes envíar mensajes, en una siguiente versión también lo verás!!
+                                input#mensaje.form-control(type='text')
+                                button(onclick='enviarMensaje()') Enviar
+                                button(onclick='limpiarNombre()') Limpiar
+
+        script(type='text/javascript')
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1053269688086410',
+              xfbml      : true,
+              version    : 'v2.6'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+
+        script(type='text/javascript')
             var socket = io('/');
             var nombre;
             function guardarNombre()
