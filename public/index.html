@@ -11,10 +11,10 @@
 	<style>
 		/** {  outline: 1px solid rgba(255, 0, 0, 0.3); }*/
 		body {background: url("http://pbs.twimg.com/profile_background_images/495851994/twitter_background.jpg.jpeg"); z-index: 1; }
-		.container{ margin-top:2%;}
+		.container{ margin-top:2%; border:1px solid #6E6E6E;}
 		.header{background-color: #D8D8D8; }
 		.form-sigin{max-width: 40%; max-height: 250px; padding: 5%; margin: 0 auto;}
-		span{color: #6E6E6E; font-size: 23px;}
+		span{color: #6E6E6E; font-size: 20px;}
 		.icons span{padding-left: 10px; padding-right:10px;}
 		.icons{display:inline-block;}
 		.col-md-4, .col-md-8{ padding: 1.5%; }
@@ -26,7 +26,7 @@
 		#bienvenida input{margin-bottom: 2%;}
 		#chat{display: none;}
 		#mensaje{width: 80%; display: inline-block;}
-		.mensaje{ padding: 1%; }
+		.mensaje{ padding: 1%; background-color: #D8D8D8;}
 		#btn-mensaje{display: inline-block;}
 		.scrollbar{float: right;	height: 400px; width: 100%;	 overflow-y: scroll; }
 		.force-overflow{ min-height: 850px; }
@@ -95,11 +95,9 @@
 				</div>
 				<div class="row pm-0">	
 						<div class="mensaje pm-0">
-							<span class="ion-happy-outline"></span>
-							<input type="text" id="mensaje" class="form-control">
-							<button onclick="enviarMensaje()"><span class="glyphicon glyphicon-thumbs-up" id="btn-mensaje"></span></button>
+							<input type="text" id="mensaje" class="form-control" placeholder="Escribe tu mensaje aquí">
+							<button onclick="enviarMensaje()"><span class="glyphicon glyphicon-pencil" id="btn-mensaje"></span></button>
 							<button onclick="limpiarMensajes()"><span class="glyphicon glyphicon-trash" id="btn-mensaje"></span></button>
-							<span class="ion-mic-a"></span>
 						</div>
 				</div>
 			</div>
